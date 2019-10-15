@@ -1,12 +1,27 @@
 Shodan filters
 ---------------
-    country : filter to a specific country
-    city    : filter to a specific city
-    geo     : filter by coordinates
-    hostname: look for a matching hostname
-    net     : limit to an IP/prefix
-    os      : filter based on operating system
-    port    : filter based on open ports
+    country     : filter to a specific country
+    city        : filter to a specific city
+    geo         : filter by coordinates
+    hostname    : look for a matching hostname
+    net         : limit to an IP/prefix
+    os          : filter based on operating system
+    port        : filter based on open ports
+    before/after: find results within a timeframe
 
-    product : filter based on product 
-              product:"Apache Tomcat"
+    product     : filter based on product 
+                    product:"Apache Tomcat"
+
+Examples
+---------
+Find Apache servers in San Francisco:
+    apache city:"San Francisco"
+
+Find Nginx servers in Germany:
+    nginx country:"DE"
+
+Find GWS (Google Web Server) servers:
+    "Server: gws" hostname:"google"
+
+Find Cisco devices on a particular subnet:
+    cisco net:"216.219.143.0/24"
