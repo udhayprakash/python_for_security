@@ -11,3 +11,7 @@ To Get the list of Phishing websites (Data Refresh - every 1 hour)
 
 To scan and the get the stats of a file (directly or with URL)
     https://developers.virustotal.com/reference#getting-started
+
+
+interesting articles 
+    - https://medium.com/@Peter_UXer/osint-how-to-find-information-on-anyone-5029a3c7fd56
