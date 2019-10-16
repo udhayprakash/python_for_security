@@ -1,0 +1,42 @@
+Shodan filters
+---------------
+    country         : filter to a specific country
+    city            : filter to a specific city
+    geo             : filter by coordinates
+    hostname        : look for a matching hostname
+    net             : limit to an IP/prefix
+    os              : filter based on operating system
+    port            : filter based on open ports
+    before/after    : find results within a timeframe
+    org             : find by organization
+    hash            : Search based on banner hash
+    has_screenshot  : true Filter search based on a screenshot being present
+    title           : Search based on text within the title
+    product         : filter based on product 
+                    product:"Apache Tomcat"
+                    
+And, https://developer.shodan.io/api/banner-specification
+
+
+Examples
+---------
+Find Apache servers in San Francisco:
+    apache city:"San Francisco"
+
+Find Nginx servers in Germany:
+    nginx country:"DE"
+
+Find GWS (Google Web Server) servers:
+    "Server: gws" hostname:"google"
+
+Find Cisco devices on a particular subnet:
+    cisco net:"216.219.143.0/24"
+
+Webcamxp instances in the US
+    webcamxp country:"US"
+
+Cisco devices in New York
+    cisco city:"New York"
+
+Unsecured Linksys Webcams with screenshots in the search query
+    title:"+tm01+" has_Screenshot:true
