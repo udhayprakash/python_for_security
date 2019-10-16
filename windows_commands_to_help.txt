@@ -1,0 +1,44 @@
+1) To get the arp tables, 
+    arp - a
+2) nslookup 
+3) To trace the packet routes to any website 
+    tracert www.google.com
+4) To manipulate network routing tables
+    route PRINT 
+5) To get theinternet protocol configuration
+    ipconfig /all
+6) To show connection stats
+    netstat
+7) To show PC user details & info 
+    net user pc_name 
+8) To open up the task status (like task manager)
+    tasklist
+9) To check ping is alive or not 
+    ping google.com
+10) To get the inventory of all the installed drivers 
+    driverquery
+11) Trace route & provide network latency & packet loss 
+    pathping www.google.com
+12) To display the current file associations
+    assoc
+13) control power settings, configure Hibernate/standby modes
+    powercfg
+    powercfg/LIST
+14) To show the system information
+    systeminfo 
+15) Displays or modifies access control lists 
+    cacls
+16) Show CMD history 
+    doskey/history 
+17) To get the MAC address
+    getmac
+18) To find the laptop serial number 
+    wmic bios get serialnumber
+19) Ping flood attack command 
+    ping -t -l 65500 127.0.0.1 - ping with 65500 bytes of data
+20) DirectX Diagnostic Tool
+    dxdiag
+21) To show WLAN profile 
+    netsh wlan show profile
+22) To shutdown the computer
+    shutdown
