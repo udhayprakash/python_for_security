@@ -1,0 +1,112 @@
+Shodan setup
+--------------
+Step 1: pip install shodan 
+Step 2: shodan init YOUR_SHODAN_API_KEY
+
+Help
+------
+shodan --help 
+Usage: shodan [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -h, --help  Show this message and exit.
+
+Commands:
+  alert       Manage the network alerts for your account
+  convert     Convert the given input data file into a different format.
+  count       Returns the number of results for a search
+  data        Bulk data access to Shodan
+  domain      View all available information for a domain
+  download    Download search results and save them in a compressed JSON...
+  honeyscore  Check whether the IP is a honeypot or not.
+  host        View all available information for an IP address
+  info        Shows general information about your account
+  init        Initialize the Shodan command-line
+  myip        Print your external IP address
+  org         Manage your organization's access to Shodan
+  parse       Extract information out of compressed JSON files.
+  radar       Real-Time Map of some results as Shodan finds them.
+  scan        Scan an IP/ netblock using Shodan.
+  search      Search the Shodan database
+  stats       Provide summary information about a search query
+  stream      Stream data in real-time.
+  version     Print version of this tool.
+
+Usage
+-----
+1) To get your internet facing Public IP
+    shodan myip
+
+2) shodan count “keyword” -> Results in numbers of records with product type
+    Ex: shodan count “apache”
+3) shodan host IP_ADDRESS
+    EX:
+     #shodan host 104.16.83.150
+        104.16.83.150
+        Country:                 United States
+        Organization:            Cloudflare
+        Updated:                 2019-10-15T14:52:48.363956
+        Number of open ports:    11
+
+        Ports:
+            80/tcp
+            443/tcp
+                |-- SSL Versions: -SSLv2, -SSLv3, -TLSv1.3, TLSv1, TLSv1.1, TLSv1.2
+        2053/tcp
+        2082/tcp
+        2083/tcp
+                |-- SSL Versions: -SSLv2, -SSLv3, TLSv1, TLSv1.1, TLSv1.2
+        2086/tcp
+        2087/tcp
+                |-- SSL Versions: -SSLv2, -SSLv3, TLSv1, TLSv1.1, TLSv1.2
+        2095/tcp
+        8080/tcp
+        8443/tcp
+                |-- SSL Versions: -SSLv2, -SSLv3, TLSv1, TLSv1.1, TLSv1.2
+        8880/tcp
+
+4) To get statistics based on product 
+    EX:
+    #shodan stats apache
+        Top 10 Results for Facet: country
+        US                             9,091,781
+        DE                             2,048,411
+        CN                             1,841,924
+        JP                             1,781,312
+        GB                             1,067,461
+        FR                             1,056,854
+        ZA                               684,995
+        CA                               586,988
+        NL                               569,957
+        BR                               409,843
+
+        Top 10 Results for Facet: org
+        Amazon.com                     1,612,444
+        Hangzhou Alibaba Advertising Co.,Ltd.     786,480
+        Peg Tech                         613,317
+        GoDaddy.com, LLC                 579,060
+        OVH SAS                          512,389
+        Digital Ocean                    430,454
+        CloudInnovation infrastructure     424,586
+        Unified Layer                    397,048
+        Enzu                             313,212
+        OVH Hosting                      275,625
+5) search 
+    Ex:
+    #shodan search --fields ip_str,port,org,hostnames microsoft iis 6.0
+    223.6.125.179   80      Hangzhou Alibaba Advertising Co.,Ltd.
+    107.172.121.163 80      YHSRV   route.via.gtt.net
+    112.216.145.90  80      LG DACOM Corporation
+    212.219.74.244  80      Jisc Services Limited   moodle.barnfield.ac.uk
+    202.39.48.50    80      HiNet   s50.shoplife.com.tw
+    80.245.106.30   80      Royal Network Technology
+    217.64.199.130  81      SEEWEB s.r.l.
+    117.247.91.109  80      BSNL
+    108.186.116.88  8080    Peg Tech
+
+6) $ shodan download --limit -1 hacked 'http.title:"hacked by"'
+
+$ shodan parse --fields http.title hacked.json.gz | \ # Extract the HTTP title from the banners grep -i "hacked by" | \ # Make sure all results we're getting have the exact words "hacked by" in the title sed -e 's/.*hacked by//i' | \ # Remove the "hacked by" text from the title so we're left with only the person taking credit sort | \ uniq -c | \ sort -nr | \ head -10 # Get the top 10 people that have defaced websites
+
+
+Book - "The Complete Guide to Shodan" by John Matherly

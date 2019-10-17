@@ -1,0 +1,35 @@
+Python FOr Security 
+--------------------
+virustotal - https://github.com/tr4cefl0w/virustotal3/blob/master/examples/get_analysis.py 
+mitre
+shodan
+stix 
+spamhaus
+
+
+REF: SHODAN API : https://developer.shodan.io/api
+
+USING REST API 
+    - KEY
+    - STORE THE CREDS IN ENVIRONMENT VARIABLES 
+    - create a class for shodan access 
+    - create a method to get the get_host_info_by_ip
+        - filter by Ip data stored in shodan & only if it has 'vulns'
+            # ['region_code', 'tags', 'ip', 'area_code', 'latitude', 'hostnames', 'postal_code', 'dma_code', 
+            # 'country_code', 'org', 'data', 'city', 'isp', 'longitude', 'last_update', 'country_code3', 'vulns', 
+            # 'country_name', 'ip_str', 'os', 'ports']
+    
+    - create a new class to generate all the public IPs 
+        In a csv , 
+            headers: PublicIP,      found_in_shodan, has_vuln
+                     105.156.26.241      1              1
+                     xxx                 1              0
+                     xxx                 0              0
+
+    - table 
+            headers: CVE_number, CVE_details
+
+
+
+
+

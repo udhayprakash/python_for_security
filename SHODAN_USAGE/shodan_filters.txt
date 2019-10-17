@@ -40,3 +40,6 @@ Cisco devices in New York
 
 Unsecured Linksys Webcams with screenshots in the search query
     title:"+tm01+" has_Screenshot:true
+
+
+https://www.exploit-db.com/docs/english/33859-searching-shodan-for-fun-and-profit.pdf
