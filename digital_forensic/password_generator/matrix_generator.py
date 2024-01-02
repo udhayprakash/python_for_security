@@ -6,7 +6,7 @@ It generates matrix, which should be saved as matrix.py file
 in the same directory, where password_generator is saved
 
 """
-import random
+import secrets
 
 
 def matrix_generate():
@@ -18,7 +18,7 @@ def matrix_generate():
     for x in range(48, 122):
         matrix[x] = {}
         for y in range(48, 122):
-            matrix[x][y] = chr(random.randint(48, 122))
+            matrix[x][y] = chr(secrets.SystemRandom().randint(48, 122))
     return matrix
 
 
