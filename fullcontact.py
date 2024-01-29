@@ -35,7 +35,7 @@ def get_arguments():
 def call_api(contact):
     url = BASE_URL + '?{0}={1}&apiKey={2}'.format(
         contact['media'], contact['user_info'], API_KEY)
-    r = requests.get(url)
+    r = requests.get(url, timeout=60)
     if r.status_code == 200:
         return r.text
     else:
