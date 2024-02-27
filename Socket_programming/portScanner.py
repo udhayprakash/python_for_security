@@ -9,9 +9,9 @@ from datetime import datetime
 # Clear the screen
 
 if sys.platform == 'win32':
-    subprocess.call('cls', shell=True)
+    subprocess.call('cls', shell=False)
 else:
-    subprocess.call('clear', shell=True)
+    subprocess.call('clear', shell=False)
 
 # Ask for input
 remoteServer = raw_input("Enter a remote host to scan: ")
