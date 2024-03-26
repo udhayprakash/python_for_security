@@ -5,13 +5,14 @@ import socket
 import subprocess
 import sys
 from datetime import datetime
+from security import safe_command
 
 # Clear the screen
 
 if sys.platform == 'win32':
-    subprocess.call('cls', shell=True)
+    safe_command.run(subprocess.call, 'cls', shell=True)
 else:
-    subprocess.call('clear', shell=True)
+    safe_command.run(subprocess.call, 'clear', shell=True)
 
 # Ask for input
 remoteServer = raw_input("Enter a remote host to scan: ")
