@@ -22,7 +22,7 @@ BASE_URL = 'http://api.fullcontact.com/v2/person.json'
 # helpers
 
 def get_arguments():
-    if len(sys.argv) is 3:
+    if len(sys.argv) == 3:
         return {
             'media': sys.argv[1],
             'user_info': sys.argv[2]
