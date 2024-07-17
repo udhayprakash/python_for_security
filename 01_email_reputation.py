@@ -2,12 +2,12 @@
 """
 Purpose: API to get the reputation of an Email
 """
-import requests
 from pprint import pprint
+from security import safe_requests
 
 
 def get_report_on_email(_email):
-    response = requests.get(f'http://emailrep.io/{_email}', timeout=60)
+    response = safe_requests.get(f'http://emailrep.io/{_email}', timeout=60)
     pprint(response.json())
     return response.json()
 
