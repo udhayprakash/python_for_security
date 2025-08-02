@@ -8,6 +8,7 @@ import os
 import requests
 from pprint import pprint
 import time
+from security import safe_requests
 
 
 class Shodan:
@@ -21,7 +22,7 @@ class Shodan:
         """
         URL = self.base_url + f'/shodan/host/{ip}?key={self.YOUR_API_KEY}&minify={minify}&history={history}'
         try:
-            response = requests.get(URL, timeout=60).json(timeout=60)
+            response = safe_requests.get(URL, timeout=60).json(timeout=60)
             if (not response.get('error')) and response.get('vulns'):
                 return response['ip_str']
                 # pprint(response)
